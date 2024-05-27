@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-3
+spec:
+  selector:             # Pod의 Label과 매칭
+    app: pod
+  ports:
+    - port: 9000          # Service 자체 Port
+      targetPort: 8080    # Pod의 Container Port
+  type: ClusterIP  # ClusterIP(default), NodePort, LoadBalancer
+  externalTrafficPolicy: Local # 트래픽 분배 역할 Local, Cluster
