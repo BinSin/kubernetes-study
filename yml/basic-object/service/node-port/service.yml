@@ -10,4 +10,4 @@ spec:
       targetPort: 8080
       nodePort: 30001 # 적지않으면 30000~32768중 자동할당
   type: NodePort
-  externalTrafficPolicy: Local
+  externalTrafficPolicy: Local # 이 설정을 해주지 않으면 트래픽이 각 노드에 분산된다.

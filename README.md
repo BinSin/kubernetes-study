@@ -1,11 +1,12 @@
 # kubernetes-study
+[블로그 정리](https://binsin.notion.site/a370fcb18609487e840de0f2a907d7d6?pvs=4)
 
 ## kubectl
 ### Create
 ```shell
 # 동일한 pod가 있을 경우 에러 발생
 # 파일이 있을 경우
-kubectl create -f ./pod.yml
+kubectl create -f ./pod2.yml
 
 # 내용과 함께 바로 작성
 kubectl create -f - <<END
@@ -23,7 +24,7 @@ END
 ### Apply
 ```shell
 # 동일한 pod가 있으면 수정된 부분만 업데이트
-kubectl apply -f ./pod.yml
+kubectl apply -f ./pod2.yml
 ``` 
 
 ### Get
@@ -52,7 +53,7 @@ kubectl describe pod pod1
 ### Delete
 ```shell
 # 파일이 있을 경우 생성한 방법 그대로 삭제
-kubectl delete -f ./pod.yml
+kubectl delete -f ./pod2.yml
 
 # 내용과 함께 바로 작성한 경우 생성한 방법 그대로 삭제
 kubectl delete -f - <<END
