@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replica2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      cascade: "false"
+  template:
+    metadata:
+      labels:
+        cascade: "false"
+    spec:
+      containers:
+        - name: container
+          image: kubetm/app:v1
