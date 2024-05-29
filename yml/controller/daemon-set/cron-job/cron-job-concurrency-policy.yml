@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cron-job-3
+spec:
+  schedule: "3,4,5 * * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: container
+              image: kubetm/init
+              command: ["sh", "-c", "echo 'job start';sleep 100; echo 'job end'"]
+          terminationGracePeriodSeconds: 0
