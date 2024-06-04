@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-probe
+  labels:
+    app: probe
+spec:
+  containers:
+    - name: probe
+      image: kubetm/app
+      ports:
+        - containerPort: 8080
+      readinessProbe:
+        exec:                   # command 내용으로 점검
+          command: ["cat", "/readiness/ready.txt"]
+        initialDelaySeconds: 10
+        periodSeconds: 5
+        successThreshold: 3     # 3번 성공시 Service와 연결됨
+      livenessProbe:
+        httpGet:                # HttpGet 메소드로 점검
+          path: /health         # 체크할 경로
+          port: 8080            # 체크할 Port
+        initialDelaySeconds: 5  # 최초 5초 후에 LivenessProbe 체크를 시작함
+        periodSeconds: 10       # 10초마다 LivenessProbe 체크
+        failureThreshold: 3      # 3번 실패시 Pod Restart

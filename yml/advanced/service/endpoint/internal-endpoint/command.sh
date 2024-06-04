@@ -1,0 +1,1 @@
+curl endpoint2:8080/hostname

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod4
+  labels:
+    svc: headless
+spec:
+  hostname: pod-a       # 호스트네임 설정, 생략시 Pod Name이 적용됨
+  subdomain: headless1  # headless 서비스 사용시 Service의 이름으로 지정
+  containers:
+    - name: container
+      image: kubetm/app

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: headless1       # Service의 이름과 동일하게 지정
+subsets:
+  - addresses:
+      - ip: 20.109.5.12    # Pod의 ClusterIp
+    ports:
+      - port: 8080         # Pod의 Container Port
