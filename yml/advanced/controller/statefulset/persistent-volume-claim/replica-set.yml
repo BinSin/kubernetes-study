@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replica-pvc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: web2
+  template:
+    metadata:
+      labels:
+        type: web2
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: minikube-m02
+      containers:
+        - name: container
+          image: kubetm/init
+          volumeMounts:
+            - name: longhorn
+              mountPath: /applog
+      volumes:
+        - name: longhorn
+          persistentVolumeClaim:
+            claimName: replica-pvc1
+      terminationGracePeriodSeconds: 10

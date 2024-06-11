@@ -1,0 +1,7 @@
+# replcas를 3으로 올리면,
+# ReplicaSet은 pod의 명이 랜덤하게 생성되고
+# Statefulset은 pod의 명이 index 순서에 맞게 생성된다.
+
+# replcas를 0으로 줄이면,
+# ReplicaSet은 pod가 동시에 삭제되고
+# Statefulset은 pod는 순차적으로 삭제된다.

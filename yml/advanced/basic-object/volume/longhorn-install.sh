@@ -38,3 +38,6 @@ kubectl edit svc -n longhorn-system longhorn-frontend
 # Longhorn Dashboard 접속
 kubectl proxy
 http://localhost:8001/api/v1/namespaces/longhorn-system/services/longhorn-frontend:80/proxy/
+
+# Longhorn 삭제
+kubectl delete -f https://raw.githubusercontent.com/kubetm/kubetm.github.io/master/yamls/longhorn/longhorn-1.5.0.yaml
