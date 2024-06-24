@@ -10,14 +10,14 @@ helm search repo loki
 ...
 grafana/loki-stack          	2.9.11       	v2.6.1     	Loki: like Prometheus, but for logs.
 ...
-# 찾은 레포중에 grafana, loki, protail 을 지원하는 차트의 values.yaml 을 얻습니다.
-helm show values grafana/loki-stack > values.yaml
-# grafana 를 추가하도록 values.yaml 수정
-vi values.yaml
+# 찾은 레포중에 grafana, loki, protail 을 지원하는 차트의 values.yml 을 얻습니다.
+helm show values grafana/loki-stack > values.yml
+# grafana 를 추가하도록 values.yml 수정
+vi values.yml
 ## grafana:
 ##  enabled: false => true
 # 헬름 차트 install
-helm install --values values.yaml loki-stack grafana/loki-stack
+helm install --values values.yml loki-stack grafana/loki-stack
 
 # 포트포워딩 3111 => 3000
 kubectl port-forward deployments/loki-stack-grafana 3111:3000
